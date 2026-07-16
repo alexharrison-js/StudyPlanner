@@ -1,4 +1,4 @@
-# ADR-XXX Title
+# ADR-006 Event-Driven Architecture
 
 Status
 
@@ -10,11 +10,26 @@ Accepted
 
 What problem is this solving?
 
+syncronous programming and limited compute resources
+
 ---
 
 ## Decision
 
 What architectural decision has been made?
+
+Every significant action generates an event.
+
+Examples:
+
+- LessonCompleted
+- QuizSubmitted
+- UserFeedbackReceived
+- ResearchCollected
+- CurriculumUpdated
+- NotificationSent
+
+Workers subscribe to events and process them asynchronously.
 
 ---
 

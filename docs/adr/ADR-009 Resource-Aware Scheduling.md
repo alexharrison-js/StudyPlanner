@@ -1,4 +1,4 @@
-# ADR-XXX Title
+# ADR-009 Resource-Aware Scheduling
 
 Status
 
@@ -10,11 +10,25 @@ Accepted
 
 What problem is this solving?
 
+Accounting for Limited compute resources
+
 ---
 
 ## Decision
 
 What architectural decision has been made?
+
+Workers should never assume compute exists.
+
+Every worker should ask:
+
+- Is compute available?
+- Is provider healthy?
+- Does quota remain?
+- Is a cheaper provider available?
+- Has another worker already completed this task?
+
+If not, return the task to the queue.
 
 ---
 
